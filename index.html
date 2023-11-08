@@ -17,12 +17,18 @@
             </div>
             <div class="product-info">
                 <h1>{{ product }}</h1>
-                <!-- v-if toggles element in DOM -->
-                <p v-if="inventory > 10">In stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+
+                <p v-if="inStock">In stock</p>
                 <p v-else>Out of stock</p>
-                <!-- v-show toggles visibility, but keeps the element in DOM -->
-                <p v-show="onSale">On Sale!</p>
+
+                <ul>
+                    <li v-for="detail in details">{{ detail }}</li>
+                </ul>
+
+                <div v-for="variant in variants" :key="variant.id">
+                    <p>{{ variant.color }}</p>
+                </div>
+
             </div>
         </div>
     </div>
