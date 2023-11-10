@@ -13,9 +13,10 @@ const routes = [
     component: EventListView,
   },
   {
-    path: "/event",
+    path: "/event/:id",
     name: "event-show",
     component: EventShowView,
+    props: true,
   },
   {
     path: "/event/create",
