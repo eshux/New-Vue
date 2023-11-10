@@ -1,25 +1,26 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import EventCreateView from "../views/EventCreateView.vue";
+import EventListView from "../views/EventListView.vue";
+import EventShowView from "../views/EventShowView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "event-list",
+    component: EventListView,
   },
   {
-    path: "/about-us",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-    // alias uses the same content ( both /about and /about-us will be the same)
-    alias: "/about",
+    path: "/event",
+    name: "event-show",
+    component: EventShowView,
+  },
+  {
+    path: "/event/create",
+    name: "event-create",
+    component: EventCreateView,
   },
 ];
 
