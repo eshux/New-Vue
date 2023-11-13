@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      parPage: 3
+      perPage: 3
     };
   },
   created() {

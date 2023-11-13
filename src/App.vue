@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
+    <NotificationContainer />
     <!-- By defaut if we change query parameters for the same route, the page won't reload, therefore won't trigger new fetch events
     If we add key prop with fullPath, the page will update because now it will look at full url path including changed query params -->
     <router-view :key="$route.fullPath" />
@@ -9,10 +10,12 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
+import NotificationContainer from '@/components/NotificationContainer.vue';
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    NotificationContainer
   }
 };
 </script>
