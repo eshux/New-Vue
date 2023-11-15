@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   props: ['id'],
@@ -38,15 +38,7 @@ export default {
   },
   computed: mapState({
     event: (state) => state.event.event
-  }),
-  created() {
-    // Without mapActions:
-    // this.$store.dispatch('event/fetchEvent', this.id);
-    this.fetchEvent(this.id);
-  },
-  // Also works
-  // methods: mapActions(['event/fetchEvent'])
-  methods: mapActions('event', ['fetchEvent'])
+  })
 };
 </script>
 
