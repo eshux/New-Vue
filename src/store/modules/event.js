@@ -69,7 +69,7 @@ export const actions = {
         dispatch('notification/add', notification, { root: true });
       });
   },
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters }, id) {
     const event = getters.getEventById(id);
 
     // See if we already have this event in state
@@ -79,16 +79,9 @@ export const actions = {
       return;
     }
 
-    return EventService.getEvent(id)
-      .then((response) => {
-        commit('SET_EVENT', response.data);
-      })
-      .catch((error) => {
-        const notification = {
-          type: 'error',
-          message: 'There was a problem fetching event: ' + error.message
-        };
-        dispatch('notification/add', notification, { root: true });
-      });
+    return EventService.getEvent(id).then((response) => {
+      commit('SET_EVENT', response.data);
+    });
+    // Catch() is handled in router guard with redirect
   }
 };
