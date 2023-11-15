@@ -2,7 +2,12 @@
   <div>
     <label v-if="label">{{ label }}</label>
     <!-- Make sure input inherits the attributes with v-bind $attrs -->
-    <select @input="updateValue" :value="value" v-bind="$attrs">
+    <select
+      v-on="listeners"
+      @change="updateValue"
+      :value="value"
+      v-bind="$attrs"
+    >
       <option
         v-for="option in options"
         :key="option"
@@ -30,9 +35,18 @@ export default {
     },
     value: [String, Number]
   },
+  computed: {
+    // To resolve v-on $listeners conflict with @input we need to modify them
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    }
+  },
   methods: {
     updateValue(event) {
-      this.$emit('input', event.target.value);
+      this.$emit('change', event.target.value);
     }
   }
 };

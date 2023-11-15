@@ -2,7 +2,12 @@
   <div>
     <label v-if="label">{{ label }}</label>
     <!-- Make sure input inherits the attributes with v-bind $attrs -->
-    <input @input="updateValue" :value="value" v-bind="$attrs" />
+    <input
+      v-on="listeners"
+      @input="updateValue"
+      :value="value"
+      v-bind="$attrs"
+    />
   </div>
 </template>
 
@@ -17,6 +22,15 @@ export default {
       default: ''
     },
     value: [String, Number]
+  },
+  computed: {
+    // To resolve v-on $listeners conflict with @input we need to modify them
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    }
   },
   methods: {
     updateValue(event) {
