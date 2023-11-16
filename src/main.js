@@ -5,9 +5,13 @@ import store from './store';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import Vuelidate from 'vuelidate';
+import DateFilter from './filters/date';
 
 // Global import
 Vue.use(Vuelidate);
+
+// Global filters
+Vue.filter('date', DateFilter);
 
 const requireComponent = require.context(
   './components',
