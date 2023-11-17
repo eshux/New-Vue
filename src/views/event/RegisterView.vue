@@ -7,10 +7,10 @@ defineProps(['event']);
 const router = useRouter();
 const GStore = inject('GStore');
 
-const create = () => {
-  // If create API is successful
+const register = () => {
+  // If register API call is successful
   // Push back to event details page
-  GStore.flashMessage = 'You succesfully created an event!';
+  GStore.flashMessage = 'You succesfully registered to the event!';
   setTimeout(() => {
     GStore.flashMessage = '';
   }, 3000);
@@ -20,7 +20,7 @@ const create = () => {
 
 <template>
   <div v-if="event">
-    <p>Create Event</p>
-    <button @click="create">CREATE</button>
+    <p>Register to Event</p>
+    <button @click="register">Register</button>
   </div>
 </template>

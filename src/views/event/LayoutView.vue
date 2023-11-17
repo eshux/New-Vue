@@ -39,7 +39,7 @@ onMounted(() => {
     <h1>{{ event.title }}</h1>
     <div id="nav">
       <RouterLink :to="{ name: 'EventDetails' }">Details</RouterLink> |
-      <RouterLink :to="{ name: 'EventCreate' }">Create</RouterLink> |
+      <RouterLink :to="{ name: 'EventRegister' }">Register</RouterLink> |
       <RouterLink :to="{ name: 'EventEdit' }">Edit</RouterLink>
     </div>
     <RouterView :event="event"></RouterView>
