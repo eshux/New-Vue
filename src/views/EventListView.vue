@@ -47,14 +47,14 @@ onMounted(() => {
       <RouterLink
         id="page-prev"
         v-if="hasPrevPage"
-        :to="{ name: 'event-list', query: { page: page - 1 } }"
+        :to="{ name: 'EventList', query: { page: page - 1 } }"
         rel="prev"
         >&#60; Previous</RouterLink
       >
       <RouterLink
         id="page-next"
         v-if="hasNextPage"
-        :to="{ name: 'event-list', query: { page: page + 1 } }"
+        :to="{ name: 'EventList', query: { page: page + 1 } }"
         rel="next"
         >Next &#62;</RouterLink
       >
