@@ -1,8 +1,11 @@
 <script setup>
 import EventCard from '@/components/EventCard.vue';
-import { ref } from 'vue';
+import { useRegisteredEventsStore } from '@/stores/registeredEvents.js';
+import { storeToRefs } from 'pinia';
 
-const registeredEvents = ref(null);
+const store = useRegisteredEventsStore();
+// Use storeToRefs to make store state reactive
+const { registeredEvents } = storeToRefs(store);
 </script>
 
 <template>
@@ -10,7 +13,7 @@ const registeredEvents = ref(null);
   <div v-if="registeredEvents && registeredEvents.length">
     <p>You have registered for the following events:</p>
     <div class="events">
-      <EventCard v-for="event in registeredEvents" :key="event.id" :event="event" />
+      <EventCard :event="event" v-for="event in registeredEvents" :key="event.id" />
     </div>
   </div>
   <div v-else>
