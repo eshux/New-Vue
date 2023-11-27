@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import EventListView from '../views/EventListView.vue';
+import RegisteredEvents from '../views/RegisteredEvents.vue';
 import EventDetailsView from '../views/event/DetailsView.vue';
 import EventRegisterView from '../views/event/RegisterView.vue';
 import EventEditView from '../views/event/EditView.vue';
@@ -34,7 +35,7 @@ const router = createRouter({
           component: EventRegisterView
         },
         {
-          path: 'dit',
+          path: 'edit',
           name: 'EventEdit',
           component: EventEditView
         }
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/about',
       name: 'About',
       component: AboutView
+    },
+    {
+      path: '/registered-events',
+      name: 'RegisteredEvents',
+      component: RegisteredEvents
     },
     {
       path: '/404/:resource',
