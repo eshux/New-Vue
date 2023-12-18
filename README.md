@@ -1,2 +1,4 @@
 # New-Vue
-Freshen up Vue skills
+Freshening up Vue 2 and Vue 3 skills.
+
+Learning process seperated in branches. 
